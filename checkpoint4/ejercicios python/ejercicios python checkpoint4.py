@@ -7,7 +7,7 @@ ejemplo_lista = ['lista1', 'lista3', 'lista2']
 ejemplo_tupla = ('tupla1', 'tupla2', 'tupla3')
 ejemplo_float = 43.47
 ejemplo_integer = 85
-ejemplo_decimal = 54.643287924
+ejemplo_decimal = Decimal(54.64)
 ejemplo_diccionario = {
     'diccionario1': 1, 
     'diccionario2': 2, 
@@ -31,7 +31,8 @@ print(ejemplo_diccionario['diccionario1']) #si conocemos exactamente el elemento
 print(list(ejemplo_diccionario.items())[0][1]) #si solo sabemos la posición del elemento y no el nombre
 
 #ejercicio5
-print(ejemplo_tupla[1:2])
+nueva_tupla = ejemplo_tupla [1]
+print(nueva_tupla)
 
 #ejercicio6
 nueva_lista = ejemplo_lista + ['lista4'] #si no queremos modificar la lista original
@@ -40,8 +41,7 @@ ejemplo_lista.append('lista4.2') #si queremos modificar la lista original
 print(ejemplo_lista)
 
 #ejercicio7
-ejemplo_lista.remove('lista1')
-ejemplo_lista.insert(0, 'lista1.2')
+ejemplo_lista [0] = 'lista1.2'
 print(ejemplo_lista)
 
 #ejercicio8
