@@ -32,7 +32,8 @@ print(list(ejemplo_diccionario.items())[0][1]) #si solo sabemos la posición del
 
 #ejercicio5
 nueva_tupla = ejemplo_tupla [1]
-print(nueva_tupla)
+print(nueva_tupla) #si queremos almacenar ese elemento en una variable
+print(ejemplo_tupla[1]) #si solo queremos el elemento
 
 #ejercicio6
 nueva_lista = ejemplo_lista + ['lista4'] #si no queremos modificar la lista original
