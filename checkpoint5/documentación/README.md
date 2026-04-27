@@ -9,11 +9,11 @@ También existe la opción de añadir una segunda condición utilizando `elif`, 
 
 Como añadido, si la condición incluye comparativas entre números o cadenas se pueden usar los siguientes signos:
 - Igual a:  ==
-- No igal a:  !=
+- No igual a:  !=
 - Mayor a: >
 - Menor a: <
 - Mayor o igual a: >=
-- Menor o igal a : <=
+- Menor o igual a : <=
 ### Usos
 Las condicionales en el código tienen diversos usos, ya que son muy útiles para ejecutar la acción que queremos, pero solo bajo las circunstancias que le especifiquemos al ordenador.
 
@@ -69,18 +69,18 @@ El bucle `while`, al contrario que el anterior, va a seguir realizando la acció
 ### Usos
 Cada tipo de bucle nos puede servir para distintos usos.
 
-El bucle `for` nos sirve para cuando queremos que una acción suceda por cada uno de los elementos de un conjunto iterable, como puede ser por cada elemento de una lista. Son situaciones en las que queremos senda acción para sendos elementos, ni una más ni una menos.
+El bucle `for` nos sirve para cuando queremos que una acción suceda por cada uno de los elementos de un conjunto iterable, como puede ser por cada elemento de una lista. Son situaciones en las que queremos sendas acciones para sendos elementos, ni una más ni una menos.
 
 El bucle `while` nos sirve para cuando queremos que se realice una acción mientras que una situación sea `True` o `False`. Son situaciones en las que no tenemos elementos iterables y queremos que se realice una acción hasta que dicha situación cambie.
 ### Sintaxis
 Sintaxis del bucle `for`:
 ```python
-for elementos in archivo:
+for elemento in secuencia:
     print('Uno más')
 ```
 Sintaxis del bucle `while`:
 ```python
-while situación == True:
+while condición:
     print('Es True')
 ```
 ### Ejemplos
@@ -93,7 +93,7 @@ for invitado in lista_de_invitados:
 ```
 Ejemplo 2.
 ```python
-for número in range(1,10):
+for número in range(1, 10):
     print(f'Tienes {número} de clientes')
 ```
 Ejemplo 3:
@@ -123,14 +123,14 @@ Otro uso que se le puede dar es transformar una lista de números, o clasificarl
 ### Sintaxis
 Para expresar una lista por comprensión se hace de la siguiente manera:
 ```python
-números = range(0,20)
+números = range(0, 20)
 
 lista_por_comprensión = [num for num in números]
 ```
 ### Ejemplos
 Ejemplo 1:
 ```python
-números = range(1,11)
+números = range(1, 11)
 
 tabla_del_doce = [num * 12 for num in números]
 ```
@@ -161,7 +161,7 @@ Dependiendo de la acción que realice la función, necesitará ninguno, uno o m�
 ### Sintaxis
 La sintaxis para los argumentos en python es la siguiente:
 ```python
-función (argumento_uno = valor, argumento_dos):
+def función (argumento_uno = valor, argumento_dos):
     acción
 ```
 ### Ejemplos
@@ -172,8 +172,8 @@ def correo_de_bienvenida(nombre = 'Eusebio'):
 ```
 Ejemplo 2:
 ```python
-def calculadora_sumatoria(num_uno = 1, num_dos = 1, num_tres):
-    print(num_uno + num_dos + num_tres)
+def calculadora_sumatoria(num_uno = 1, num_dos = 1):
+    print(num_uno + num_dos)
 ```
 Ejemplo 3:
 ```python
@@ -216,7 +216,7 @@ calculadora_multiplicadora = lambda valor_uno, valor_dos: valor_uno * valor_dos
 ## Pregunta 6: ¿Qué es un paquete pip?
 
 ### Definición
-Un paquete pip es aquel paquete o módulo de código que importamos a nuestro código con la peculiaridad de que ha sido construido por otros programadores. 
+Un paquete pip es aquel gestor de paquetes o módulos de código que importamos a nuestro código con la peculiaridad de que ha sido construido por otros programadores. 
 
 Cada uno tiene su forma de ser instalado e importado a nustro código, y, a su vez, cada uno funciona de forma completamente diferente. Es una forma de compartir código entre programadores.
 ### Usos
@@ -227,8 +227,9 @@ Sin embargo, todos comparten una característica común: sirven para simplificar
 La mejor parte es que incluso los estudiantes de programación pueden usarlos aunque en el momento no sepan muy bien como funcionan ni como están hechos ya que pueden solo leerse las instrucciones de cada uno y utilizarlos. Es el claro ejemplo de colaboración entre programadores en internet.
 ### Sintaxis
 La sintaxis para la instalación de pip empieza por descargarse el documento de instalación de pip y seguir las instrucciones dependiendo del sistema operativo que tengamos. Posteriormente en la terminal escribir lo siguiente:
-```python
-get-pip.py
+```bash
+python
+python get-pip.py
 pip --version
 ```
 Posteriormente, para instalar cualquier otro tipo de paquete solo habría que escribir en la terminal lo siguiente:
