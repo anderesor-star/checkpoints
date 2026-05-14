@@ -318,7 +318,7 @@ class Persona:
     def __repr__(self):
         return f'Hola {self.nombre}!'
 
-p = Persona('Juan')
+p = Persona('Juan', 'Perez')
 print(p)
 ```
 ### Imágenes
