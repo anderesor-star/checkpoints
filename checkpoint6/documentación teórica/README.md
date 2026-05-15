@@ -468,3 +468,4 @@ despedida()
 ```
 ### Imágenes
 ![decorator](../documentación%20teórica/img/python_decorator.webp)
+![decorator](../documentación%20teórica/img/python_decorator.webp)
