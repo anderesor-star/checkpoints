@@ -1,9 +1,3 @@
----
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/Web7I3102DGSij1MFQjQ/
----
-
 # Preguntas teóricas
 
 ## Pregunta 1: ¿Qué diferencia a Javascript de cualquier otro lenguaje de programación?
