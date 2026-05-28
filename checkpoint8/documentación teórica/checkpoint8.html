@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint 8</title>
+
+    <script src="https://kit.fontawesome.com/337b79918c.js" crossorigin="anonymous"></script>
+
+    <!-- Julius Sans One + Lato-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        /* EEE0CB
+        F3752B
+        004F2D
+        6A6262
+        280003*/
+
+        html, body {
+            background-color: #eee0cb;
+            font-family: "Lato", sans-serif;
+            margin: 0px;
+        }
+
+        h3, h4, h5 {
+            font-size: 120%;
+        }
+
+        .heading {
+            background-color: #004f2d;
+            margin: 0px;
+            height: 125px;
+            display: grid;
+            justify-content: center;
+        }
+
+        .heading > .title {
+            font-family: "Julius Sans One", sans-serif;
+            font-size: 15px;
+            color: #f3752B;
+            font-weight: bolder;
+            justify-items: center;
+            margin: 20px;
+        }
+
+        .heading > .title h1 {
+            margin: 0px;
+        }
+
+        .heading > .botones {
+            display: flex;
+            /* width: 800px; */
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .heading > .botones button, .footer > .botones button {
+            background-color: #f3752B;
+            color: #280003;
+            font-weight: bold;
+            box-shadow: none;
+            border-color: #f3752B;
+            border-style: none;
+            border-radius: 10px;
+            height: 35px;
+            width: 100px;
+        }
+
+        .heading > .botones button:hover, .footer > .botones button:hover {
+            background-color: #be4600;
+            border-color: #be4600;
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
+
+        .info {
+            margin: 10px 300px;
+            justify-items: center;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .titulo {
+            justify-items: center;
+        }
+
+        .info h3 {
+            background-color: #f3752B;
+            color: #280003;
+            height: 30px;
+            border-radius: 5px;
+            align-content: center;
+            padding-left: 5px;
+        }
+
+        .info code{
+            background-color: #280003;
+            color: #eee0cb;
+            border-radius: 5px;
+            padding: 2px;
+        }
+
+        .tabla {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .vent {
+            background-color: #69db69;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .desvent {
+            background-color: #fa3939;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .sint {
+            justify-self: center;
+            background-color: #280003;
+            color: #eee0cb;
+            border-radius: 5px;
+            padding: 2px;
+        }
+
+        .ejemplos {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        .fotos {
+            display: flex;
+            justify-self: center;
+            padding-top: 50px;
+        }
+
+        .fotos img {
+            height: 320px;
+            width: 320px;
+            border-radius: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .arriba {
+            justify-self: right;
+        }
+
+        .arriba button {
+            margin: 20px;
+            padding: 20px;
+            height: 20px;
+            width: 20px;
+            border-radius: 30px;
+            background-color: #280003;
+            border-color: #280003;
+            color: #eee0cb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-style: none;
+        }
+
+        .btn-arriba {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        .footer {
+            background-color: #004f2d;
+            margin: 0px;
+            height: 200px;
+            display: grid;
+            justify-content: center;
+        }
+
+        .footer > .botones {
+            display: flex;
+            /* width: 800px; */
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .footer > .title2 {
+            font-family: "Julius Sans One", sans-serif;
+            font-size: 10px;
+            color: #f3752B;
+            font-weight: bolder;
+            justify-items: center;
+            margin: 10px;
+        }
+
+        .footer > .autora {
+            font-family: "Julius Sans One", sans-serif;
+            font-size: 5px;
+            color: #f3752B;
+            font-weight: bolder;
+            justify-items: center;
+            margin: 20px;
+        }
+
+        #pantalla1.active {
+            display: grid;
+        }
+
+        #pantalla1 ol {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="heading">
+
+        <div class="title">
+            <h1>Checkpoint 8</h1>
+        </div>
+
+        <div class="botones">
+            <button class="tab-btn active" onclick="cambiarPestana(event, 'pantalla1')">Guía</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla2')">Pregunta 1</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla3')">Pregunta 2</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla4')">Pregunta 3</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla5')">Pregunta 4</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla6')">Pregunta 5</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla7')">Pregunta 6</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla8')">Pregunta 7</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla9')">Pregunta 8</button>
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <div id="pantalla1" class="content active">
+            <div class="titulo">
+                <h1>Guía</h1>
+            </div>
+            <ol>
+                <li>¿Qué tipo de bucles hay en JS?</li>
+                <li>¿Cuáles son las diferencias entre const, let y var?</li>
+                <li>¿Qué es una función de flecha?</li>
+                <li>¿Qué es la deconstrucción de variables?</li>
+                <li>¿Qué hace el operador de extensión en JS?</li>
+                <li>¿Qué es la programación orientada a objetos?</li>
+                <li>¿Qué es una promesa en JS?</li>
+                <li>¿Qué hacen async y await por nosotros?</li>
+            </ol>
+        </div>
+
+        <div id="pantalla2" class="content">
+            <div class="titulo">
+                <h2>¿Qué tipo de bucles hay en JS?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>En Javascript podemos encontrar seis tipos de bucles:</p>
+
+                <ul>
+                    <li><code>for</code>: es el bucle más común, funciona mediante un contador numérico y se repite de forma controlada hasta que ese contador deja de cumplir la condición que le hayamos puesto.</li>
+                    <li><code>while</code>: es un bucle que se ejecuta continuamente mientras la condición que hayamos indicado sea verdadera (<code>true</code>). Evalúa la condición antes de ejecutar el código cada vez.</li>
+                    <li><code>do...while</code>: es muy parecido al <code>while</code>, pero se diferencian en que este evalúa la condición al final de la vuelta en vez de al principio. Esto asegura que el código se ejecute al menos una vez, sin importar si la condición es verdadera o falsa desde el inicio.</li>
+                    <li><code>for...in</code>: es un bucle diseñado específicamente para recorrer las propiedades (llaves/keys) de un objeto de JS. Va saltando de propiedad en propiedad de forma automática.</li>
+                    <li><code>for...of</code>: es un bucle que sirve para recorrer os valores de elementos iterables como arrays o cadenas de texto. Su diferencia con <code>for…in</code> es que este no da la llave o índice, sino que da el valor real directo.</li>
+                    <li><code>forEach()</code>: aunque no es en sí un bucle como los anteriores, sino un método nativo exclusivo de los arrays de JS, funciona de manera parecida. Recibe una función callback y la ejecuta una vez por cada elemento del array.</li>
+                </ul>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>El bucle <code>for</code> es comúnmente utilizado para cuando se sabe el número exacto de veces que se quiere ejecutar el código, o para recorrer arrays mediante sus índices numéricos; o incluso para crear secuencias numéricas o patrones.</p>
+
+                <p>El bucle <code>while</code> se utiliza para cuando no se sabe cuántas vueltas se van a necesitar en el bucle antes de ejecutarlo (por ejemplo, leer las líneas de un archivo hasta que se acabe).</p>
+
+                <p>El bucle <code>do…while</code> se suele utilizar para menús interactivos de consola o sistemas de validación en los que se necesita pedirle un dato al usuario obligatoriamente antes de comprobar si es correcto o no.</p>
+
+                <p>El bucle <code>for…in</code> se utiliza normalmente para inspeccionar qué datos hay guardados dentro de un objeto dinámico o para hacer configuraciones basadas en diccionarios.</p>
+
+                <p>El bucle <code>for…of</code> se usa para recorrer arrays de forma limpia cuando no importa en qué posición o índice está el elemento, sino el elemento en sí.</p>
+
+                <p>El método <code>forEach()</code> se suele usar para renderizar listas de elementos en el DOM o para aplicar operaciones rápidas a colecciones en paradigmas de programación funcional.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+                <div class="for">
+                    <h4><code>for</code></h4>
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul>
+                                <li>El más rápido en cuanto a rendimiento.</li>
+                                <li>Da control absoluto sobre el índice (se puede ir de dos en dos, hacia atrás, saltarse elementos…).</li>
+                            </ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+
+                            <ul><li>La sintaxis es propensa a errores de escritura, es fácil equivocarse en la condición y crear un bucle infinito o un error de “desfase por uno”.</li></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="while">
+                    <h4><code>while</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul><li>Sintaxis limpia y directa para evaluar estados booleanos.</li></ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+
+                            <ul><li>Si se olvida actualizar la variable que altera la condición dentro del bloque, este se ejecutará para siempre, congelando el navegador (bucle infinito).</li></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="do-while">
+                    <h4><code>do...while</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul><li>Ahorra el tener que duplicar el código antes del bucle para que se ejecute por primera vez.</li></ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+                            
+                            <ul><li>Al igual que pasa con <code>while</code>, puede dar lugar a bucles infinitos.</li></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="for-in">
+                    <h4><code>for...in</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul><li>Es la forma más directa y cómoda de extraer las propiedades de un objeto sin tener que usar índices numéricos.</li></ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+                            
+                            <ul>
+                                <li>Es muy lento en los arrays.</li>
+                                <li>Recorre las propiedades en un orden que no siempre está garantizado, y hereda propiedades del prototipo del objeto si no se tiene cuidado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="for-of">
+                    <h4><code>for...of</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul>
+                                <li>La sintaxis es muy limpia, moderna, segura y fácil de leer.</li>
+                                <li>No hay peligro de bucles infinitos.</li>
+                            </ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+                            
+                            <ul><li>No se tiene acceso al índice actual. Si se necesita modificar el array original basándose en su posición, este bucle no sirve.</li></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forEach">
+                    <h4><code>forEach()</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul>
+                                <li>Da acceso al elemento, al índice y al array completo al mismo tiempo en los argumentos de la función.</li>
+                                <li>Mantiene el scope (alcance de las variables) muy limpio.</li>
+                            </ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+                            
+                            <ul><li>No se pueden usar palabras como break ni continue. Si se inicia, se tiene que recorrer el array entero de principio a fin, no se puede parar a mitad. </li></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>En general en todos los tipos de bucles, algunas buenas prácticas son las siguientes. </p>
+
+                <p>Es recomendable evitar la fatiga de memoria en arrays; si se va a usar el bucle <code>for</code> para recorrer un array, es mejor guardar la longitud en una variable en lugar de calcularla en cada vuelta. </p>
+
+                <p>También es mejor usar <code>const</code> en <code>for...of</code> y <code>for...in</code>, ya que, como en cada vuelta del bucle se crea una nueva variable completamente limpia en el bloque de memoria, al usar siempre <code>const</code> en vez de <code>let</code> se evitan mutaciones accidentales del dato dentro de esa vuelta.</p>
+
+                <p>En el JavaScript moderno, si la intención es transformar datos, se prefiere <code>.map(), .filter(), .reduce()</code> antes que un bucle <code>for</code> manual. Esto hace que el código sea más fácil de leer y probar.</p>
+
+                <p>Por último, hay que tener cuidado con los bucles infinitos en el desarrollo. Si se está construyendo un bucle <code>while</code>, hay que escribir la línea de actualización de la variable (<code>i++</code> o parecido) antes de realizar el resto de la programación, así no se olvida. </p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <li><code>for:</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>for (inicio; condición; actualización) {
+                        //Código a ejecutar
+                        };
+                    </code>
+                </div>
+
+                <p> </p>
+                <li><code>while:</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>while (condición) {
+                        // Código a ejecutar
+                        };
+                    </code>
+                </div>
+
+                <p> </p>
+                <li><code>do...while:</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>
+                        do {
+                        // Código a ejecutar (se ejecuta mínimo una vez)
+                        } while (condición);
+                    </code>
+                </div>
+
+                <p> </p>
+                <li><code>for...in:</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>
+                        for (const llave in objeto) {
+                            // Código a ejecutar
+                        };
+                    </code>
+                </div>
+
+                <p> </p>
+                <li><code>for...of:</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>
+                        for (const elemento of iterable) {
+                            // Código a ejecutar
+                        };
+                    </code>
+                </div>
+
+                <p> </p>
+                <li><code>forEach():</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>
+                        array.forEach((elemento, indice) => {
+                            // Código a ejecutar
+                        });
+                    </code>
+                </div>
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    for (let i = 0; i < 3; i++) {
+                        console.log(`Vuelta número: ${i}`);
+                    };
+                </pre></code>
+
+                <code><pre>
+                    let tazasDeCafe = 3;
+
+                    while (tazasDeCafe > 0) {
+                        console.log(`Te quedan ${tazasDeCafe} tazas.`);
+                        tazasDeCafe--; 
+                    };
+                </pre></code>
+
+                <code><pre>
+                    let contraseñaCorrecta = false;
+
+                    do {
+                        console.log("Comprobando credenciales con la base de datos...");
+                    } while (contraseñaCorrecta);
+                </pre></code>
+
+                <code><pre>
+                    const coche = { marca: "Toyota", modelo: "Corolla", año: 2024 };
+
+                    for (const propiedad in coche) {
+                        console.log(`${propiedad}: ${coche[propiedad]}`);
+                    };
+                </pre></code>
+
+                <code><pre>
+                    const videojuegos = ["Zelda", "Mario", "Metroid"];
+
+                    for (const juego of videojuegos) {
+                        console.log(`Jugando a: ${juego}`);
+                    };
+                </pre></code>
+
+                <code><pre>
+                    const precios = [10, 20, 30];
+
+                    precios.forEach((precio, i) => {
+                        console.log(`Producto ${i + 1} cuesta: ${precio}€`);
+                    });
+                </pre></code>
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/bucles1.png" alt="">
+                <img src="../documentación teórica/img/bucles2.webp" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla3" class="content">
+            <div class="titulo">
+                <h2>¿Cuáles son las diferencias entre const, let y var?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>Tanto <code>const</code>, como <code>let</code> como <code>var</code> son formas de almacenar una variable.</p>
+
+                <p><code>var</code> es la forma original de declarar las variables. Tiene un alcance de función (function scope), es decir, si se declara dentro de una función, la variable solo le pertenece a la función, pero si se declara en un bloque (como <code>if</code> o <code>for</code>), la variable se “escapa” y es accesible desde fuera.</p>
+
+                <p><code>let</code> se creó para solucionar los problemas de <code>var</code>. Tiene alcance de bloque (block scope), es decir, la variable solo le pertenece al bloque en el que esté creada, ya sea un <code>if</code>, un <code>for</code>, un <code>while</code> o una función, no se puede acceder a ella desde fuera.</p>
+
+                <p><code>const</code> tiene el mismo alcance de bloque que <code>let</code>, pero es mas restrictiva, ya que es una constante. Esto significa que, una vez asignado el valor, no se puede reescribir posteriormente. Además, es obligatorio inicializarla (darle un valor) en la misma línea en la que se declara.</p>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Hoy en día, <code>var</code> no tiene ningún uso, se mantiene solamente por compatibilidad con páginas web muy antiguas, ya que está desaconsejado su uso. </p>
+
+                <p>Entre los usos de <code>let</code> tenemos los contadores de los bucles (<code>for (let i=0;…)</code>), y la conmutabilidad de las variables, ya que, si queremos crear una variable y posteriormente cambiar su valor, tendríamos que usar let.</p>
+
+                <p><code>const</code> sí tiene algunos usos más, ya que permite guardar referencias a elementos del DOM (Document Object Model, <code>const botón = document.querySelector(…)</code>), configurar URLs de APIs, configuraciones globales, funciones de flecha y módulos importados, y almacenar las estructuras de datos (objetos y arrays) que modificarán sus datos internos pero no su tipo de estructura.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="var">
+                    <h4><code>var</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul><li>Era muy flexible.</li></ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+
+                            <ul>
+                                <li>Es muy peligros, permite re-declaración accidental de una variable sin que el navegador dé ningún error.</li>
+                                <li>Su comportamiento de hoisting inicializa la variable como <code>undefined</code>, lo que suele ocultar bugs muy difíciles de encontrar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="let">
+                    <h4><code>let</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul>
+                                <li>Evita que las variables “contaminen” otras partes del código.</li>
+                                <li>No permite la re-declaración en el mismo ámbito (si se intenta duplicar una variable con el mismo nombre dará error).</li>
+                                <li>Su hoisting protege metiendo la variable en la Temporal Dead Zone (TDZ), dando error si se intenta usar antes de definirla.</li>
+                            </ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+
+                            <ul><li>No tiene ninguna reseñable, opera de la manera esperada en cualquier lenguaje de programación moderno.</li></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="const">
+                    <h4><code>const</code></h4>
+
+                    <div class="tabla">
+                        <div class="vent">
+                            <h5>Ventajas</h5>
+
+                            <ul>
+                                <li>Aporta seguridad y robustez al código; si se lee const, el programador/a sabe que esa variable mantiene su identidad durante todo el código.</li>
+                                <li>Optimiza ligeramente el rendimiento del motor de JavaScript.</li>
+                            </ul>
+                        </div>
+
+                        <div class="desvent">
+                            <h5>Desventajas</h5>
+
+                            <ul><li>Puede confundir a los principiantes con los objetos y los arrays, ya que const protege la referencia en la memoria, no los valores internos (mutabilidad).</li></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas Prácticas</h3>
+
+                <p>Una de las prácticas recomendadas es escribir <code>const</code> por defecto. Si se descubre que hay que reasignar una variable más abajo (por ejemplo, un contador), se cambia a <code>let</code>. Se estima que el 90% de las variables en una aplicación deberían ser <code>const</code>.</p>
+
+                <p>El uso de <code>var</code> está completamente desaconsejado, no hay ningún escenario en el desarrollo moderno de aplicaciones en el que <code>var</code> sea necesario, solo introduce riesgos de seguridad. En su lugar es mejor usar <code>let</code>.</p>
+
+                <p>Por último, es recomendable usar mayúsculas solo para las constantes matemáticas o fijas, como <code>const PI = 3.14</code> o <code>const API_URL = …</code>, ya que son valores absolutos que nunca cambian ni mutan, así son más fáciles de identificar. Para el resto de variables hechas con <code>const</code> se usa la nomenclatura estándar <code>camelCase</code>.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <li><code>var</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>var nombre = contenido;</code>
+                </div>
+
+                <p> </p>
+                <li><code>let</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>let nombre = contenido;</code>
+                </div>
+
+                <p> </p>
+                <li><code>const</code></li>
+                <p> </p>
+                <div class="sint">
+                    <code>const nombre = contenido;</code>
+                </div>
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    var edad = 25;
+                    edad = 26;
+                </pre></code>
+
+                <code><pre>
+                    let contador =1;
+                    contador = 2;
+                </pre></code>
+
+                <code><pre>
+                    const usuario = {nombre: 'Carlos'};
+                </pre></code>
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/p2.jpg" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla4" class="content">
+            <div class="titulo">
+                <h2>¿Qué es una función de flecha?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>Una función de flecha es una alternativa compacta a las expresiones de función tradicionales, con dos características matemáticas y de comportamiento únicas:</p>
+
+                <ul>
+                    <li>Sintaxis reducida: elimina la necesidad de escribir la palabra clave <code>function</code> y, en muchos casos, los corchetes y la palabra <code>return</code>.</li>
+                    <li>Contexto léxico de <code>this</code>: a diferencia de una función normal, las funciones de flecha no crean su propio valor de <code>this</code>. En su lugar, heredan el <code>this</code> del código que las rodea (su entorno de ejecución inmediato).</li>
+                </ul>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Uno de los principales usos son los callbacks y funciones anónimas, ya que ayuda a pasar funciones rápidas como argumentos dentro de métodos de arrays (<code>map</code>, <code>filter</code>, <code>forEach</code>).</p>
+
+                <p>También permite crear temporizadores y eventos asíncronos, creándolos dentro de funciones como <code>setTimeout</code> o promesas, donde se necesita mantener la referencia del <code>this</code> del componente superior.</p>
+
+                <p>Por último, permiten la declaración rápida de componentes funcionales.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Legibilidad extrema: limpian visualmente el código eliminando palabras repetitivas como <code>function</code> y <code>return</code>.</li>
+                            <li>Menor problemas con <code>this</code>: al no crear su propio <code>this</code>, evitan tener que escribir <code>this.valor = valor;</code> o usar <code>.bind(this)</code> para que una función de fondo recuerde a qué objeto pertenece.</li>
+                            <li>Ideales para programación funcional: fomentan la creación de funciones puras, pequeñas y directas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>No sirven como métodos de objetos: si se mete una función de flecha dentro de un objeto, <code>this</code> no apuntará al objeto, sino a la ventana global (<code>window</code>), rompiendo la lógica.</li>
+                            <li>No tienen el objeto <code>arguments</code>: si se necesita usar la variable oculta <code>arguments</code> (común en funciones antiguas), las funciones de flecha no la tienen (en su lugar se usa el operador Rest <code>…args</code>).</li>
+                            <li>No se pueden usar como constructores: no se les puede poner la palabra <code>new</code> por delante, JS lanzará un error crítico si sucede. No tienen prototipos (<code>prototype</code>).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Una buena práctica es mantener el retorno implícito corto, es decir, usar la versión de una sola línea solo si la operación es sencilla. Si la lógica requiere condiciones complejas, se abren los corchetes y se escribe un <code>return</code> explícito para que se pueda leer el código fácilmente.</p>
+
+                <p>Es recomendable usar nombres descriptivos, al ser funciones anónimas que se guardan en variables, es importante que la constante describa bien qué hace la función.</p>
+
+                <p>Por último, no se debe abusar en los eventos del DOM tradicionales. Si se está manejando un evento tradicional de JS plano con <code>addEventListener</code>, a veces es mejor usar una función normal porque el navegador asigna automáticamente el elemento clickeado al <code>this</code>. Con la función flecha se perdería esa característica.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <div class="sint">
+                    <code><pre>
+                        const sumarFlechaCompleta = (a, b) => { 
+                            return a + b; 
+                        };
+
+                        const sumarFlechaCorta = (a, b) => a + b;
+
+                        const saludar = () => "Hola!";
+
+                        const duplicar = x => x * 2;
+
+                        const calcular = (a, b, c) => a + b + c;
+                    </pre></code>
+                </div>
+
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    const crearUsuario = (nombre, rol) => ({ nombre: nombre, rol: rol });
+
+                    console.log(crearUsuario("María", "Developer")); 
+                </pre></code>
+                
+                <code><pre>
+                    Const default = () => console.log('Debe iniciar sesión antes de continuar');
+                </pre></code>
+
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/flecha.png" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla5" class="content">
+            <div class="titulo">
+                <h2>¿Qué es la deconstrucción de variables?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>La deconstrucción de variables o desestructuración (destructuring assignment) es una sintaxis especial que permite desempacar o extraer valores de los arrays o propiedades de los objetos; sirve para asignarlos de forma directa a variables individuales y limpias utilizando solo una línea de código.</p>
+
+                <p>Como nota importante, la deconstrucción no modifica el objeto o array original, simplemente hace una copia de sus datos hacia las nuevas variables.</p>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Uno de los usos principales de la deconstrucción de variables es determinar los valores por defecto, por si el dato no existe o no es proporcionado. Si se intenta extraer una propiedad que no viene del objeto, se le puede asignar un valor de respaldo para que el código no devuelva <code>undefined</code>.</p>
+
+                <p>Otro uso común es cambiar el nombre de las variables (el alias); a veces el objeto tiene un nombre de propiedad no adecuado o incompatible con otra variable del código. Con la deconstrucción se puede renombrar dicha variable usando solo dos puntos (<code>:</code>).</p>
+
+                <p>Sin embargo, su uso estrella es la desestructuración en los argumentos de una función, de ahí su nombre. Gracias a esto, en lugar de pasar un objeto a una función y escribir cada vez <code>objeto.propiedad</code>; de esta forma se puede desestructurar directamente en los paréntesis de los parámetros. </p>
+
+                <p>Por último, permite saltar posiciones en arrays. Si se necesita seleccionar un elemento concreto de una lista, se pueden dejar espacios vacíos separados por comas para indicar que no se quieren seleccionar dichos elementos (solo vale para listas cortas, con listas largas es más trabajoso que usar otros métodos que utilicen el índice).</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Código DRY (Don't Repeat Yourself): es un término común para expresar que el código está limpio, sin repeticiones innecesarias, ya que elimina la repetición masiva de escribir el nombre del objeto padre una y otra vez.</li>
+                            <li>Declaratividad: el inicio del código actúa como documentación, así que, al ver la deconstrucción de la variable, se sabe exactamente qué propiedades del objeto va a utilizar esa sección del código. Esto ayuda a anticiparse a las acciones posteriores.</li>
+                            <li>Líneas compactas: permite extraer múltiples datos independientes en una sola línea.</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>Curva de aprendizaje visual: para principiantes, ver estructuras complejas llenas de llaves, dos puntos y valores por defecto combinados puede resultar difícil de asimilar y entender al principio, ralentizando la forma en la que leen el código.</li>
+                            <li>Rigidez en los arrays: en los arrays el orden es primordial. Si la API cambia el orden de los elementos del array, la desestructuración romperá la lógica asignando datos a variables equivocadas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Está desaconsejado abusar de la desestructuración anidada profunda. Aunque JavaScript permite crear desestructuraciones con muchas anidaciones y llaves, es muy complicado leerlas. Si el objeto es muy profundo, es mejor desestructurar en pasos separados para que sea más fácil de asimilar.</p>
+
+                <p>Es recomendable combinarlo con el operador <code>Rest(…)</code>. Esto sirve para separar un dato del resto del grupo, y que todo lo que esté dentro de Rest sea un objeto con todos los valores que tenga.</p>
+
+                <p>Por último, una buena práctica es usar la desestructuración para intercambiar variables (Swap). En vez de crear variables temporales para cambiar el valor de dos cajas, utilizando arrays es inmediato.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+                
+                <h4>Deconstrucción de objetos:</h4>
+                <div class="sint">
+                    <code><pre>
+                        const nombre = {valores};
+                        const {valores} = nombre;
+                    </pre></code>
+                </div>
+
+                <h4>Deconstrucción de arrays:</h4>
+                <div class="sint">
+                    <code><pre>
+                        const nombre = [valores];
+                        const [valores] = nombre;
+                    </pre></code>
+                </div>
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    const configuracion = { volumen: 80 }; 
+                    const { volumen, tema = "oscuro" } = configuracion;
+                </pre></code>
+
+                <code><pre>
+                    const cliente = { id_interno_sistema: 4022 }; 
+                    const { id_interno_sistema: idCliente } = cliente;
+                </pre></code>
+
+                <code><pre>
+                    const mostrarPerfil = ({ nombre, edad }) => { 
+                        return `Usuario: ${nombre}, Edad: ${edad}`; 
+                    }; 
+                    const juego = { nombre: "Zelda", consola: "Switch", edad: 10 }; 
+                    mostrarPerfil(juego);
+                </pre></code>
+
+                <code><pre>
+                    const coordenadas = [10, 20, 30]; 
+                    const [, , z] = coordenadas;
+                </pre></code>
+
+                <code><pre>
+                    let a = 1; 
+                    let b = 2; 
+                    [a, b] = [b, a];
+                </pre></code>
+
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/desestructurador1.png" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla6" class="content">
+            <div class="titulo">
+                <h2>¿Qué hace el operador de extensión en JS?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>El operador de extensión u operador spread toma un elemento iterable (un array, un objeto, una cadena de texto) y lo expande y divide en elementos individuales allí donde se necesiten múltiples argumentos, elementos o propiedades.</p>
+
+                <p>Su función principal es extraer las piezas internas de un contenedor para poder duplicarlas, combinarlas o moverlas a otro contenedor de forma limpia.</p>
+
+                <p>Como analogía podemos usar un mazo de cartas. El array u objeto sería el mazo de cartas dentro de su caja, ordenado; el operador spread sacaría las cartas de la caja y las desplegaría todas sobre la mesa de un solo golpe para poder verlas y usarlas.</p>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Uno de los principales usos del operador de extensión es clonar arrays u objetos sin mutar el original, también llamado copia superficial. En JS si se hace <code>listaB = listaA</code> no se crea una lista nueva, sino que se crea un acceso directo a la misma lista. Por lo que, si se modifica <code>listaB</code>, también se modifica <code>listaA</code>. Con el operador spread se rompe ese enlace creando una copia limpia en un nuevo espacio de la memoria, pudiendo modificar las listas de forma independiente.</p>
+
+                <p>También sirve para fusionar y combinar colecciones, comúnmente llamado concatenación. Permite mezclar múltiples arrays u objetos en uno solo, metiendo los elementos en el orden exacto que se quiera. Esto ofrece mucha libertad a la hora de crear nuevos arrays/objetos a partir de otros prehechos.</p>
+
+                <p>Por último, permite pasar un array como argumentos independientes a una función, especialmente útil para funciones matemáticas como <code>Math.max()</code>, ya que no aceptan un array entero como parámetro, solo aceptan números separados por comas. El operador de extensión resuelve eso de manera sencilla, sin necesidad de código largo y complejo.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Fomenta la inmutabilidad: es una herramienta muy común en entornos como React, ya que permite actualizar estados (añadir elementos a un alista, cambiar propiedades de un usuario) creando un objeto nuevo sin alterar el original.</li>
+                            <li>Sintaxis declarativa: sustituye métodos antiguos como <code>.concat()</code>, <code>Object.assign()</code> o bucles <code>for</code> para copiar datos, volviendo el código mucho más limpio y explicativo.</li>
+                            <li>Versatilidad: funciona igual tanto para colecciones indexadas (arrays) como para colecciones de llaves (objetos).</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>Copia superficial (Shallow Copy): el operador spary solo clona el primer nivel de profundidad, por lo que si el objeto tiene otros objetos o arrays anidados dentro, esos sub-objetos seguirán compartiendo la misma referencia en la memoria, provocando que, si se modifican, el original también se verá alterado.</li>
+                            <li>Costo de rendimiento en colecciones masivas: si se intenta propagar un array con millones de registros de golpe, se puede saturar la pila de llamadas (call stack) o consumir demasiada memoria RAM.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Es recomendable estar atento a la profundidad de los datos. Si se quiere clonar estructuras con datos anidados complejos (respuestas de APIs JSON profundas o parecido), es mejor no usar el operador de extensión para clonar todo el objeto; sino mejor usar métodos de clonación profunda como <code>structuredClone(objetoOriginal)</code>.</p>
+
+                <p>No se debe confundir con el anteriormente mencionado “operador rest”. Aunque se escriban igual (<code>…</code>), hacen cosas opuestas. Si se encuentra en el lado del receptor (antes del igual), es el operador rest, que recoge cosas sueltas y las encajona en un array; si está en el lado del emisor (después del igual(dentro de un array o llamada)), es el operador spread, que desempaqueta el contenido.</p>
+
+                <p>Por último, hay que controlar el orden de la fusión. Al fusionar objetos, se debe colocar siempre las propiedades por defecto al principio y el operador spread de las modificaciones al final. Así es seguro que los datos nuevos sobrescriben correctamente a los antiguos.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <div class="sint">
+                    <code>const nuevoArray = [...arrayOriginal];</code>
+                </div>
+
+                <div class="sint">
+                    <code>const nuevoObjeto = { ...objetoOriginal };</code>
+                </div>
+
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    const productosOriginales = ["Camisa", "Pantalón"];
+
+                    const productosCopia = [...productosOriginales];
+                    productosCopia.push("Zapatos");
+                </pre></code>
+
+                <code><pre>
+                    const usuarioBase = { nombre: "Carlos", rol: "User" }; 
+                    const permisosExtra = { rol: "Admin", premium: true };
+
+                    const usuarioFinal = { ...usuarioBase, ...permisosExtra };
+                </pre></code>
+
+                <code><pre>
+                    const notas = [4.5, 8.9, 9.2, 6.1];
+                    const notaMasAlta = Math.max(...notas);
+                </pre></code>
+
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/spread1.jpg" alt="">
+                <img src="../documentación teórica/img/spreadvsrest.png" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla7" class="content">
+            <div class="titulo">
+                <h2>¿Qué es la programación orientada a objetos?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>La programación orientada a objetos (POO) es el paradigma de programación más utilizado en la industria del software. Se inventó para solucionar un problema del mundo real: en aplicaciones masivas, el código secuencial tradicional se volvía una maraña de funciones sueltas (código espagueti).</p>
+
+                <p>La POO consiste en organizar el código de la aplicación copiando la forma en la que se organiza el mundo real. En la vida real, el entorno no está hecho de funciones sueltas, está hecho de objetos (un coche, una persona, una taza…) que tienen características propias y que saben hacer cosas. Pues el código imita eso.</p>
+
+                <p>Los programas se estructuran alrededor de datos (propiedades) y comportamientos (métodos) unificados en una sola entidad llamada objeto, en vez de estructurarse alrededor de funciones lógicas puras. La POO tiene dos pilares estructurales:</p>
+
+                <ul>
+                    <li>La clase: es el plano arquitectónico (blueprint), el molde o la plantilla teórica.</li>
+                    <li>El objeto o instancia: es el producto real construido a partir de ese molde.</li>
+                </ul>
+
+                <p>Sin embargo, para que un código se considere realmente orientado a objetos debe cumplir con los siguientes principios fundamentales:</p>
+
+                <ol>
+                    <li>Encapsulamiento (ocultación de datos): Es meter dentro de la “cápsula” del objeto los datos y acciones, protegiendo su estado interno del exterior. Así, el exterior no puede modificar los datos directamente, necesita pedirle permiso al objeto a través de métodos seguros (como los getters y setters).</li>
+                    <li>Abstracción (reducir la complejidad): significa ocultar los detalles complejos de la implementación interna y mostrar solo las características esenciales y sencillas que se necesitan para interactuar con el objeto. Así el código solo muestra lo esencial para poder trabajar con el objeto, sin tener que entender toda la lógica detrás de ello.</li>
+                    <li>Herencia (reutilización de código): permite crear una clase nueva (clase hija) basa en una clase existente (clase padre). La clase hija hereda automáticamente todas las propiedades y métodos de la clase padre, evitando duplicar el código y permitiendo especializar el comportamiento.</li>
+                    <li>Polimorfismo: es la capacidad de que diferentes objetos de diferentes tipos respondan al mismo mensaje o comando, pero ejecutando una acción diferente y adaptada a su propia naturaleza.</li>
+                </ol>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>La programación orientada a objetos es muy utilizada, por ejemplo, en el desarrollo de videojuegos. Cada personaje, enemigo, bala, obstáculo o escenario es un objeto con propiedades (vida, coordenadas, velocidad) y métodos (moverse, disparar, recibirDaño).</p>
+
+                <p>También es muy utilizada en las interfaces de usuario (UI). En el desarrollo web, los botones, formularios y modales se gestionan como componentes (objetos individuales que se pintan y controlan a sí mismos).</p>
+
+                <p>Por último, en la arquitectura de software empresarial sirve para crear sistemas de facturación, pasarelas de pago o gestión de bases de datos donde las entidades del mundo real (la factura, el cliente, la transacción) se modelan directamente en el código.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Reutilización de código: gracias a la herencia, no es necesario escribir el mismo código en diferentes partes del programa, vale con extender las funcionalidades de las clases existentes.</li>
+                            <li>Mantenimiento modular: si hay un error en un sistema, pongamos el de pagos, basta con ir directo a la clase correspondiente (<code>pasarelaPago</code>). Como está encapsulada, se sabe que los cambios ahí difícilmente romperán otro sistema, como podría ser el de login.</li>
+                            <li>Escalabilidad: permite que equipos grandes trabajen en paralelo. Un desarrollador puede estar programando la clase de login mientras otro programa la clase de pagos sin pisarse el código.</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>Mayor curva de aprendizaje: entender conceptos abstractos como el polimorfismo, las interfaces o la mutabilidad de estados requiere más tiempo que aprender programación secuencial, por lo que consume mucho tiempo de aprendizaje.</li>
+                            <li>Mayor consumo de recursos: los objetos ocupan más espacio en la memoria RAM que las variables o funciones primitivas simples.</li>
+                            <li>Sobre dificultad: es común caer en la tentación de crear estructuras absurdamente complejas con muchas clases heredadas de otras para resolver problemas sencillos que se solucionan con una simple función de tres líneas.</li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Es recomendable usar el principio de responsabilidad única, es decir, una clase debe encargarse de una sola cosa. No se debe crear una clase, por ejemplo, una llamada usuario, y que guarde los datos de perfil, envíe correos electrónicos de marketing y conecte a la base de datos. Es mejor dividir esa lógica en clases separadas.</p>
+
+                <p>Se prefiere la composición sobre la herencia. No es bueno abusar de la herencia profunda, si la cadena pasa de 2 o 3 niveles, el código se vuelve rígido y difícil de cambiar. Es mejor dotas a los objetos de habilidades combinando componentes más pequeños.</p>
+
+                <p>Por último, es mejor mantener las propiedades privadas por defecto. No se debe dejas que cualquier parte del código altere los valores del objeto libremente. Usar métodos públicos como getters y setters para validad los datos antes de guardarlos es lo ideal.</p>
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    class Empleado { 
+                        constructor(nombre, sueldoBase) {
+                            this.nombre = nombre; 
+                            this.sueldoBase = sueldoBase; 
+                        } 
+                        calcularSueldo() { 
+                            return this.sueldoBase; 
+                        }
+                    }
+                </pre></code>
+
+                <code><pre>
+                    class Desarrollador extends Empleado { 
+                        constructor(nombre, sueldoBase, lenguajeFavorito) { 
+                            super(nombre, sueldoBase); 
+                            this.lenguajeFavorito = lenguajeFavorito; 
+                        } 
+                        calcularSueldo() { 
+                            const bonoTech = 500; 
+                            return this.sueldoBase + bonoTech; 
+                        } 
+                    }
+                </pre></code>
+
+                <code><pre>
+                    const empleadoComun = new Empleado("Laura", 1500); 
+                    const programador = new Desarrollador("Andere", 2500, "JavaScript");
+                </pre></code>
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/poo1.png" alt="">
+                <img src="../documentación teórica/img/poo2.png" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla8" class="content">
+            <div class="titulo">
+                <h2>¿Qué es una promesa en JS?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p>Una promesa (promise) es un objeto que representa el resultado futuro (éxito o fracaso) de una operación asíncrona. En internet, muchas tareas no ocurren al instante (pedir datos a un servidor, cargar una imagen pesada…), si JS esperase a que estas tareas terminaran antes de seguir leyendo el código, la página web se congelaría por completo. Las promesas evitan este mismo problema. </p>
+
+                <p>Básicamente, es un contenedor temporal para un valor que aún no se conoce, pero que se resolverá en algún momento. Mientras ese valor llega, el resto del programa puede seguir ejecutándose sin detenerse.</p>
+
+                <p>Una promesa actúa como una máquina de estados y siempre se encuentra en una de las siguientes situaciones:</p>
+
+                <ol>
+                    <li>Pending/pendiente: es el estado inicial. La operación asíncrona aún no ha terminado.</li>
+                    <li>Fulfilled/cumplida: la operación terminó con éxito. La promesa se resolvió correctamente y ya están los datos disponibles.</li>
+                    <li>Rejected/rechazada: la operación falló debido a un error.</li>
+                </ol>
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Es muy común su uso para peticiones HTTP/AJAX, para extraer o enviar datos a APIs externas mediante <code>fetch</code> o librerías como Axios.</p>
+
+                <p>También se usan para operaciones de archivos (Node.js), en las que se lee, escribe o borra archivos del disco duro (<code>fs.promises</code>). A su vez, también sirve para consultar registros en bases de datos como MongoDB, PostgreSQL…</p>
+
+                <p>Por último, sirve para crear temporizadores complejos para crear retrasos de tiempo o animaciones encadenadas cronológicamente.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Se evita el uso del Callback Hell: antes de las promesas, para encadenar tareas asíncronas se tenían que meter funciones dentro de funciones dentro de funciones, dificultando la lectura del código en forma de pirámide. Las promesas permiten encadenar en vertical de forma limpia.</li>
+                            <li>Control de errores centralizado: con un solo bloque <code>.catch</code> o un <code>try/catch</code> se puede capturar cualquier error que ocurra en una cadena de cinco o seis operaciones asíncronas seguidas.</li>
+                            <li>Ejecución en paralelo: herramientas como <code>Promise.all()</code> o <code>Promise.allSettled()</code> permiten lanzar múltiples tareas al mismo tiempo, multiplicando la velocidad de la aplicación.</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>Son incancelables: una vez se crea una promesa y se empieza a ejecutar, no se puede detener a mitad de camino de forma nativa (a menos que se usen herramientas avanzadas de controladores como <code>AbortController</code>, pero de por sí no es posible).</li>
+                            <li>Tragado silencioso de errores: si se olvida poner un <code>.catch()</code> o un bloque <code>try/catch</code>, la promesa puede fallar en silencio sin que aparezca en el navegador de forma obvia que se rompió, dificultando el debugging.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Lo más recomendado es usar <code>async/await</code> por encima de <code>.then()</code>, hace que el código parezca síncrono, eliminando las funciones flechas anidadas y mejorando drásticamente la lectura.</p>
+
+                <p>Es importante no olvidarse del control de errores. No se debe dejar un <code>fetch</code> o una promesa suelta sin su respectivo <code>catch</code>. Una promesa rota sin controlar puede tirar por tierra procesos enteros en entornos como Node.js.</p>
+
+                <p>Cuando sea posible es mejor paralelizar, es decir, no usar <code>await</code> línea por línea para tareas independientes. Si se necesitan pedir datos de tres cosas diferentes que no dependen entre sí, es mejor meterlas en un array y usar <code>Promise.allSettled()</code>.</p>
+
+                <p>Por último, es recomendable evitar caer en el “promise hell”, lo cual se traduce en escribir cosas como <code>await api().then(res => res.json().then(data => ...))</code>, es decir, lo mismo que hacían los antiguos callbacks. Es mejor mantener la desestructuración de pasos limpia: un <code>await</code> para la red y otro para el JSON.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <h4>Creación de una promesa:</h4>
+                <div class="sint">
+                    <code><pre>
+                        const miPromesa = new Promise((resolve, reject) => { 
+                            let todoOk = true; 
+
+                            if (todoOk) { 
+                                resolve("¡Datos enviados con éxito!"); 
+                            } else { 
+                                reject("Error: No se pudo procesar."); 
+                            }
+                        });
+                    </pre></code>
+                </div>
+
+                <h4>Consumo clásico de una promesa:</h4>
+                <div class="sint">
+                    <code><pre>
+                        miPromesa 
+                            .then(resultado => console.log(resultado)) 
+                            .catch(error => console.error(error)) 
+                            .finally(() => console.log("Terminado"));
+                    </pre></code>
+                </div>
+
+                <h4>Consumo moderno de una promesa:</h4>
+                <div class="sint">
+                    <code><pre>
+                        async function ejecutarTarea() { 
+                            try { 
+                                const resultado = await miPromesa
+                                console.log(resultado); 
+                            } catch (error) { 
+                                console.error(error); 
+                            } 
+                        }
+                    </pre></code>
+                </div>
+
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    const descargarArchivo = () => {
+                        return new Promise((resolve) => {
+                            console.log("Iniciando descarga...");
+                            setTimeout(() => {
+                                resolve("Archivo_Secreto.pdf descargado.");
+                            }, 3000); 
+                        });
+                    };
+
+                    async function iniciarApp() {
+                        const archivo = await descargarArchivo();
+                        console.log(archivo); // Aparece exactamente a los 3 segundos
+                    }
+                    iniciarApp();
+                </pre></code>
+
+                <code><pre>
+                    async function obtenerPokemon(nombre) {
+                        try {
+                            const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`);
+                        
+                            if (!respuesta.ok) throw new Error("No se encontró ese Pokémon");
+
+                            const datos = await respuesta.json();
+                            console.log(`Pokémon encontrado: ${datos.name}`);
+                        } catch (error) {
+                            console.log(`Hubo un problema: ${error.message}`);
+                        }
+                    }
+
+                    obtenerPokemon("pikachu");
+                </pre></code>
+
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/promesas1.png" alt="">
+                <img src="../documentación teórica/img/promesas2.webp" alt="">
+            </div>
+        </div>
+
+        <div id="pantalla9" class="content">
+            <div class="titulo">
+                <h2>¿Qué hacen async y await por nosotros?</h2>
+            </div>
+            
+            <div class="definition">
+                <h3>Definición</h3>
+
+                <p><code>async</code> y <code>await</code> don dos palabras clave que trabajan en equipo para permitir escribir código asíncrono que visualmente se lee y se comporta igual que el código asíncrono tradicional (de arriba abajo, línea por línea).</p>
+
+                <ul>
+                    <li><code>async</code> o Asynchronus se coloca antes de la declaración de una función. Su único trabajo es transformar esa función para que siempre retorne una promesa de forma automática, sin importar lo que tenga dentro.</li>
+                    <li><code>await</code> o Wait solo se puede usar dentro de una función marcada como <code>async</code>. Su trabajo es pausar la ejecución de la función en esa línea exacta, esperando a que la promesa se resuelva (tenga éxito o falle) antes de continuar con la siguiente línea. Mientras espera, no congela el navegador, sino que permite que el resto de la aplicación siga funcionando de fondo.</li>
+                </ul>
+
+            </div>
+
+            <div class="usos">
+                <h3>Usos</h3>
+
+                <p>Es muy común encontrarlo en el consumo de APIs y servicios web. Es el estándar para usar <code>fetch</code> o Axios en el desarrollo moderno.</p>
+
+                <p>Permite crear scripts secuenciales, es decir, tareas donde el paso B necesita obligatoriamente los datos que devuelve el paso A.</p>
+
+                <p>Por último, se utiliza mucho en las pruebas unitarias (testing), en herramientas como Jest o Cypress para simular interacciones de usuarios y esperar a que el software responda antes de validar el test.</p>
+            </div>
+
+            <div class="ventajas-contras">
+                <h3>Ventajas y Desventajas</h3>
+
+                <div class="tabla">
+                    <div class="vent">
+                        <h5>Ventajas</h5>
+
+                        <ul>
+                            <li>Legibilidad imbatible: transforma el código asíncrono en algo lineal. Es mucho más fácil de comprender para el desarrollador.</li>
+                            <li>Depuración (debugging) sencilla: si se pone un punto de interrupción (breakpoint) en el navegador para revisar el código línea por línea, con <code>async/await</code> se puede saltar de una línea a otra exactamente en el orden visual en que están escritas. En cambio, con <code>.then()</code> el depurador salta de forma caótica.</li>
+                            <li>Estructura de errores nativa: permite usar bloques <code>try/catch</code>. Ya no se necesita aprender métodos raros para capturar fallos, se usa la misma estructura que para el resto del lenguaje.</li>
+                        </ul>
+                    </div>
+
+                    <div class="desvent">
+                        <h5>Desventajas</h5>
+
+                        <ul>
+                            <li>Peligro de cuellos de botella accidentales: si se pone <code>await</code> en tareas que son independientes entre sí, se obliga a la aplicación a ir más lenta, esperando a procesos que podrían ejecutarse en paralelo.</li>
+                            <li>Falsa sensación de sincronismo: al verse tan ordenado, es fácil olvidar que, en el fondo, siguen ocurriendo procesos asíncronos en segundo plano, lo que puede causar confusiones con los tiempos de respuesta si no se comprende bien el funcionamiento del Event Loop de JS.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buenas-practicas">
+                <h3>Buenas prácticas</h3>
+
+                <p>Es importante no olvidarse del <code>try/catch</code>, dejar un <code>await</code> sin protección dentro de una función es dejar una puerta abierta a que la aplicación se congele o se rompa si el servidor externo falla.</p>
+
+                <p>Una buena práctica es identificar qué puede ir en paralelo. Si hay tres peticiones <code>await</code> seguidas que no dependen la una de la otra, es mejor guardar las promesas en variables y combinarlas usando <code>Promise.all()</code> o <code>Promise.allSettled()</code>.</p>
+
+                <p>Por último, no se debe abusar de <code>async</code> si no hay <code>await</code> dentro. Es mejor no desgastar recursos marcando todas las funciones del código como <code>async</code> por si acaso; preferiblemente usarse solo si en el cuerpo de la función se van a consumir promesas o se necesita obligatoriamente que devuelva una promesa de forma nativa.</p>
+            </div>
+
+            <div class="sintaxis">
+                <h3>Sintaxis</h3>
+
+                <div class="sint">
+                    <code><pre>
+                        async function obtenerDatos() {
+                            try {
+                                const res = await fetch('https://api.ejemplo.com/usuario'); 
+                                const usuario = await res.json();
+                                console.log(usuario);
+                            } catch (err) {
+                                console.error(err); 
+                            }
+                        }
+                    </pre></code>
+                </div>
+            </div>
+
+            <div class="ejemplos">
+                <h3>Ejemplos</h3>
+
+                <code><pre>
+                    async function obtenerNombreCompleto() {
+                        return "María González"; 
+                    }
+                    obtenerNombreCompleto().then(nombre => console.log(nombre)); 
+
+                    const nombre = await obtenerNombreCompleto();
+                </pre></code>
+
+                <code><pre>
+                    async function verificarAcceso(idUsuario) {
+                        try {
+                            const respuesta = await fetch(`https://api.sistema.com/permisos/${idUsuario}`);
+                            const datos = await respuesta.json();
+
+                            if (datos.rol === "admin") {
+                                await abrirPanelAdministrador(); 
+                            } else {
+                                console.log("Acceso denegado");
+                            }
+                        } catch (error) {
+                            console.error("Error de conexión:", error);
+                        }
+                    }
+                </pre></code>
+            </div>
+
+            <div class="fotos">
+                <img src="../documentación teórica/img/async1.png" alt="">
+                <img src="../documentación teórica/img/async2.webp" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="arriba">
+        <button class="btn-arriba" onclick="volverArriba()"><i class="fa-solid fa-angles-up"></i></button>
+    </div>
+
+    <div class="footer">
+
+        <div class="botones">
+            <button class="tab-btn active" onclick="cambiarPestana(event, 'pantalla1')">Guía</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla2')">Pregunta 1</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla3')">Pregunta 2</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla4')">Pregunta 3</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla5')">Pregunta 4</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla6')">Pregunta 5</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla7')">Pregunta 6</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla8')">Pregunta 7</button>
+            <button class="tab-btn" onclick="cambiarPestana(event, 'pantalla9')">Pregunta 8</button>
+        </div>
+
+        <div class="title2">
+            <h1>Checkpoint 8</h1>
+        </div>
+
+        <div class="autora">
+            <h1>Andere Sordo González</h1>
+            <h2>Mayo de 2026</h2>
+        </div>
+    </div>
+
+
+    <script>
+        function cambiarPestana(evt, idPantalla) {
+        const contenidos = document.querySelectorAll('.content');
+        
+        contenidos.forEach(c => {
+            c.classList.remove('active');
+        });
+
+        const botones = document.querySelectorAll('.tab-btn');
+        botones.forEach(b => {
+            b.classList.remove('active');
+        });
+
+        const pantallaDestino = document.getElementById(idPantalla);
+        if (pantallaDestino) {
+            pantallaDestino.classList.add('active');
+        }
+        
+        evt.currentTarget.classList.add('active');
+
+        window.scrollTo({ top: 0 });
+    }
+
+    function volverArriba() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    </script>
+</body>
+</html>
