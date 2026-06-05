@@ -11,43 +11,44 @@ let precioTercero = 0
 let extras = ""
 let precioExtras = 0
 let opcionValida = false;
-  
-if (horario < '07:00') {
-    prompt ('No estamos abiertos, por favor, vuelva a las 07:00 o introduzca otro hora');
-} else if (horario >= '07:00' && horario < '13:00') {
-    desayuno = confirm ('Horario de desayuno, ¿qué desea desayunar?');
+ 
+if (horario >= '07:00' && horario < '13:00') {
+  desayuno = confirm ('Horario de desayuno, ¿qué desea desayunar?');
 } else if (horario >= '13:00' && horario <= '16:00') {
-    comida = confirm ('Horario de comidas, ¿qué desea comer?');
+  comida = confirm ('Horario de comidas, ¿qué desea comer?');
 } else if (horario > '16:00' && horario <= '23:00') {
-    cena = confirm ('Horario de cenas, ¿qué desea cenar?');
+  cena = confirm ('Horario de cenas, ¿qué desea cenar?');
 } else if (horario > '23:00') {
-    prompt ('Hemos cerrado, por favor, vuelva a las 07:00 o introduzca otra hora');
+  prompt ('Hemos cerrado, por favor, vuelva a las 07:00 o introduzca otra hora');
+} else if (horario < '07:00') {
+  prompt ('No estamos abiertos, por favor, vuelva a las 07:00 o introduzca otro hora');
 } else {
-    prompt ('No es una hora válida, por favor, introduzca una hora para comer');
+  prompt ('No es una hora válida, por favor, introduzca una hora para comer');
 };
 
 if (desayuno) {
   confirm (`MENÚ DEL DESAYUNO:
-           Plato fuerte:
-           -Cruasán
-           -Tostada
-           -Cereales
-           
-           Bebida:
-           -Café
-           -Té
-           -Infusión
-           
-           Zumo:
-           -Naranja
-           -Piña
-           -Melocotón`);
+Plato fuerte:
+-Cruasán
+-Tostada
+-Cereales
+
+Bebida:
+-Café
+-Té
+-Infusión
+
+Zumo:
+-Naranja
+-Piña
+-Melocotón`);
+  
   opcionValida = false;
   while (!opcionValida) {
     primero = prompt(`Elija un plato fuerte:
-                                   -Cruasán (2€)
-                                   -Tostada (1,20€)
-                                   -Cereales (1€)`).toLowerCase();
+-Cruasán (2€)
+-Tostada (1,20€)
+-Cereales (1€)`).toLowerCase();
 
     if (primero.includes('cruas') || primero.includes('croissant')) {
       precioPrimero = 2.00
@@ -72,9 +73,9 @@ if (desayuno) {
   
   while (!opcionValida) {
     segundo = prompt(`Elija una bebida:
-                             -Café (1,20€)
-                             -Té (1€)
-                             -Infusión (1,50€)`).toLowerCase();
+-Café (1,20€)
+-Té (1€)
+-Infusión (1,50€)`).toLowerCase();
 
     if (segundo.includes('caf')) {
       precioSegundo = 1.20
@@ -99,9 +100,9 @@ if (desayuno) {
   
   while (!opcionValida) {
     tercero = prompt (`Elija un zumo:
-                            -Naranja (2€)
-                            -Piña (1,70€)
-                            -Melocotón (1,80€)`).toLowerCase();
+-Naranja (2€)
+-Piña (1,70€)
+-Melocotón (1,80€)`).toLowerCase();
 
     if (tercero.includes('naranja')) {
       precioTercero = 2.00
@@ -126,11 +127,20 @@ if (desayuno) {
   
   while (!opcionValida) {
     extras = prompt(`¿Quiere algún extra? (máximo 1):
-                                     -Napolitana (2€)
-                                     -Pan tumaca (0,70€)
-                                     -Galletas (1€)
-                                     -Empanada (1,50€)`).toLowerCase();
+-Napolitana (2€)
+-Pan tumaca (0,70€)
+-Galletas (1€)
+-Empanada (1,50€)`);
 
+    if (extras === null) {
+      extras = "nada";
+      precioExtras = 0;
+      opcionValida = true;
+      continue;
+    };
+    
+    extras = extras.toLowerCase();
+    
     if (extras.includes('napolitana')) {
       precioExtras = 2.00
       opcionValida = true;
@@ -157,26 +167,26 @@ if (desayuno) {
 
 if (comida) {
   confirm (`MENÚ DE LA COMIDA:
-           Primer plato:
-           -Arroz con chistorra
-           -Fabada asturiana
-           -Macarrones con tomate
-           
-           Segundo plato:
-           -Carne guisada
-           -Lubina a la plancha
-           -Calabacines rellenos
-           
-           Postre:
-           -Arroz con leche
-           -Natillas
-           -Yogurt`);
+Primer plato:
+-Arroz con chistorra
+-Fabada asturiana
+-Macarrones con tomate
+
+Segundo plato:
+-Carne guisada
+-Lubina a la plancha
+-Calabacines rellenos
+
+Postre:
+-Arroz con leche
+-Natillas
+-Yogurt`);
   opcionValida = false;
   while (!opcionValida) {
     primero = prompt(`Elija el primer plato:
-                                   -Arroz con chistorra (4€)
-                                   -Fabada asturiana (6€)
-                                   -Macarrones con tomate (2,50€`).toLowerCase();
+-Arroz con chistorra (4€)
+-Fabada asturiana (6€)
+-Macarrones con tomate (2,50€`).toLowerCase();
 
     if (primero.includes('arroz')) {
       precioPrimero = 4.00
@@ -201,9 +211,9 @@ if (comida) {
   
   while (!opcionValida) {
     segundo = prompt(`Elija un segundo plato:
-                             -Carne guisada (6€)
-                             -Lubina a la plancha (4€)
-                             -Calabacines rellenos (5€)`).toLowerCase();
+-Carne guisada (6€)
+-Lubina a la plancha (4€)
+-Calabacines rellenos (5€)`).toLowerCase();
 
     if (segundo.includes('carne')) {
       precioSegundo = 6.00
@@ -228,9 +238,9 @@ if (comida) {
   
   while (!opcionValida) {
     tercero = prompt (`Elija un postre:
-                            -Arroz con leche (2€)
-                            -Natillas (1,70€)
-                            -Yogurt (1€)`).toLowerCase();
+-Arroz con leche (2€)
+-Natillas (1,70€)
+-Yogurt (1€)`).toLowerCase();
 
     if (tercero.includes('arroz')) {
       precioTercero = 2.00
@@ -255,11 +265,20 @@ if (comida) {
   
   while (!opcionValida) {
     extras = prompt(`¿Quiere algún extra? (máximo 1):
-                                     -Croquetas (2€)
-                                     -Pan tumaca (0,70€)
-                                     -Empanadillas (1€)
-                                     -Ensalada (3€)`).toLowerCase();
+-Croquetas (2€)
+-Pan tumaca (0,70€)
+-Empanadillas (1€)
+-Ensalada (3€)`);
 
+    if (extras === null) {
+      extras = "nada";
+      precioExtras = 0;
+      opcionValida = true;
+      continue;
+    };
+    
+    extras = extras.toLowerCase();
+    
     if (extras.includes('croquetas')) {
       precioExtras = 2.00
       opcionValida = true;
@@ -286,26 +305,27 @@ if (comida) {
 
 if (cena) {
   confirm (`MENÚ DE LA CENA:
-           Primer plato:
-           -Ensalada de queso de cabra
-           -Pasta con parmesano
-           -Revuelto de verduras
-           
-           Segundo plato:
-           -Filete a la plancha
-           -Albondigas con salsa de cerveza y miel
-           -Lasaña
-           
-           Postre:
-           -Arroz con leche
-           -Natillas
-           -Yogurt`);
+Primer plato:
+-Ensalada de queso de cabra
+-Pasta con parmesano
+-Revuelto de verduras
+
+Segundo plato:
+-Filete a la plancha
+-Albondigas con salsa de cerveza y miel
+-Lasaña
+
+Postre:
+-Arroz con leche
+-Natillas
+-Yogurt`);
+  
   opcionValida = false;
   while (!opcionValida) {
     primero = prompt(`Elija el primer plato:
-                                   -Ensalada de queso de cabra (4€)
-                                   -Pasta con parmesano (6€)
-                                   -Revuelto de verduras (3,50€`).toLowerCase();
+-Ensalada de queso de cabra (4€)
+-Pasta con parmesano (6€)
+-Revuelto de verduras (3,50€`).toLowerCase();
 
     if (primero.includes('ensalada')) {
       precioPrimero = 4.00
@@ -330,9 +350,9 @@ if (cena) {
   
   while (!opcionValida) {
     segundo = prompt(`Elija un segundo plato:
-                             -Filete a la plancha (6€)
-                             -Albondigas con salsa de cerveza y miel (8€)
-                             -Lasaña (5€)`).toLowerCase();
+-Filete a la plancha (6€)
+-Albondigas con salsa de cerveza y miel (8€)
+-Lasaña (5€)`).toLowerCase();
 
     if (segundo.includes('filete')) {
       precioSegundo = 6.00
@@ -357,9 +377,9 @@ if (cena) {
   
   while (!opcionValida) {
     tercero = prompt (`Elija un postre:
-                            -Arroz con leche (2€)
-                            -Natillas (1,70€)
-                            -Yogurt (1€)`).toLowerCase();
+-Arroz con leche (2€)
+-Natillas (1,70€)
+-Yogurt (1€)`).toLowerCase();
 
     if (tercero.includes('arroz')) {
       precioTercero = 2.00
@@ -384,11 +404,20 @@ if (cena) {
   
   while (!opcionValida) {
     extras = prompt(`¿Quiere algún extra? (máximo 1):
-                                     -Croquetas (2€)
-                                     -Pan tumaca (0,70€)
-                                     -Empanadillas (1€)
-                                     -Nachos (3€)`).toLowerCase();
+-Croquetas (2€)
+-Pan tumaca (0,70€)
+-Empanadillas (1€)
+-Nachos (3€)`);
 
+    if (extras === null) {
+      extras = "nada";
+      precioExtras = 0;
+      opcionValida = true;
+      continue;
+    };
+    
+    extras = extras.toLowerCase();
+    
     if (extras.includes('croquetas')) {
       precioExtras = 2.00
       opcionValida = true;
@@ -416,11 +445,11 @@ if (cena) {
 if (desayuno || comida || cena) {
   const precioTotal = precioPrimero + precioSegundo + precioTercero + precioExtras;
   
-  let total = alert (`¿Es correcto el pedido?:
-                      -${primero} --> ${precioPrimero.toFixed(2)}€
-                      -${segundo} --> ${precioSegundo.toFixed(2)}€
-                      -${tercero} --> ${precioTercero.toFixed(2)}€
-                      -${(extras || !extras.includes('no') || !extras.includes('nada')) ? extras : 'Ninguno'} --> ${precioExtras.toFixed(2)}€
+  let total = alert (`Detallado de la cuenta:
+-${primero} --> ${precioPrimero.toFixed(2)}€
+-${segundo} --> ${precioSegundo.toFixed(2)}€
+-${tercero} --> ${precioTercero.toFixed(2)}€
+-${(extras || !extras.includes('no') || !extras.includes('nada')) ? extras : 'Ninguno'} --> ${precioExtras.toFixed(2)}€
 
-                      -total: ${precioTotal.toFixed(2)}€`); 
+-total: ${precioTotal.toFixed(2)}€`); 
 };
